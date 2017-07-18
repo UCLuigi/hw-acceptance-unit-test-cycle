@@ -896,3 +896,91 @@ Migrating to AddDirectorToMovie (20170717190248)
   [1m[36m (0.2ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
   [1m[35m (11.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20170717190248')
   [1m[36m (9.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20111119180638')[0m
+
+
+Started GET "/assets/rails.png" for 73.252.230.115 at 2017-07-17 21:15:53 +0000
+
+
+Started GET "/assets/rails.png" for 73.252.230.115 at 2017-07-17 21:16:12 +0000
+
+
+Started GET "/assets/rails.png" for 73.252.230.115 at 2017-07-17 21:16:15 +0000
+
+
+Started GET "/assets/rails.png" for 73.252.230.115 at 2017-07-17 21:16:36 +0000
+
+
+Started GET "/assets/rails.png" for 73.252.230.115 at 2017-07-17 21:16:40 +0000
+
+
+Started GET "/assets/rails.png" for 73.252.230.115 at 2017-07-17 21:16:41 +0000
+
+
+Started GET "/assets/rails.png" for 73.252.230.115 at 2017-07-17 21:16:41 +0000
+
+
+Started GET "/assets/rails.png" for 73.252.230.115 at 2017-07-17 21:19:25 +0000
+
+
+Started GET "/movies" for 73.252.230.115 at 2017-07-17 21:19:29 +0000
+Processing by MoviesController#index as HTML
+  [1m[36mMovie Load (0.2ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('G', 'PG', 'PG-13', 'NC-17', 'R')[0m
+  Rendered movies/index.html.haml within layouts/application (19.6ms)
+Completed 200 OK in 296ms (Views: 250.3ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/assets/application.self-2b9b4ceb35a4568bfbe3001eb6cf7d691787c8ec9b2018eecbc3c235cc74b7a4.css?body=1" for 73.252.230.115 at 2017-07-17 21:19:30 +0000
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 73.252.230.115 at 2017-07-17 21:19:30 +0000
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 73.252.230.115 at 2017-07-17 21:19:30 +0000
+
+
+Started GET "/assets/application.self-ac4347b135ab8935f2dd20089f2acc8bec1d6b2ad528a80fcb03cd445dbd4d27.js?body=1" for 73.252.230.115 at 2017-07-17 21:19:30 +0000
+
+
+Started GET "/movies/new" for 73.252.230.115 at 2017-07-17 21:19:39 +0000
+Processing by MoviesController#new as HTML
+  Rendered movies/new.html.haml within layouts/application (16.1ms)
+Completed 200 OK in 26ms (Views: 25.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/movies" for 73.252.230.115 at 2017-07-17 21:19:50 +0000
+Processing by MoviesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"n5/7Jqb2ecsIvFXYyrEPdzPE4Magvsl8PnHb6Mm9z9X5stIUYKdRHklIwkC1k6bNUlLreBDm8JtZBCcmAia3Xw==", "movie"=>{"title"=>"Aladin", "rating"=>"PG", "release_date(1i)"=>"2017", "release_date(2i)"=>"7", "release_date(3i)"=>"17", "director"=>"Me"}, "commit"=>"Save Changes"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "movies" ("title", "rating", "director", "release_date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Aladin"], ["rating", "PG"], ["director", "Me"], ["release_date", "2017-07-17 00:00:00.000000"], ["created_at", "2017-07-17 21:19:50.227072"], ["updated_at", "2017-07-17 21:19:50.227072"]]
+  [1m[35m (6.7ms)[0m  commit transaction
+Redirected to https://hw5-1-albaluis.c9users.io/movies
+Completed 302 Found in 21ms (ActiveRecord: 7.3ms)
+
+
+Started GET "/movies" for 73.252.230.115 at 2017-07-17 21:19:50 +0000
+Processing by MoviesController#index as HTML
+  [1m[36mMovie Load (0.3ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('G', 'PG', 'PG-13', 'NC-17', 'R')[0m
+  Rendered movies/index.html.haml within layouts/application (4.7ms)
+Completed 200 OK in 14ms (Views: 12.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/movies/1" for 73.252.230.115 at 2017-07-17 21:20:04 +0000
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mMovie Load (0.2ms)[0m  SELECT  "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered movies/show.html.haml within layouts/application (38.2ms)
+Completed 500 Internal Server Error in 45ms (ActiveRecord: 0.2ms)
+
+ActionView::Template::Error (undefined method `search_samedirector_path' for #<#<Class:0x007f4119f0ed60>:0x007f4114432900>
+Did you mean?  search_field_tag):
+    23: = link_to 'Back to movie list', movies_path
+    24: 
+    25: %p
+    26: = link_to 'Find Movies With Same Director', search_samedirector_path(@movie.title)
+  app/views/movies/show.html.haml:26:in `_app_views_movies_show_html_haml__439190976698899275_69958744771340'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.0ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.0ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (35.9ms)
